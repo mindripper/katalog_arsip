@@ -43,6 +43,23 @@ CREATE TABLE `anggota` (
 
 /*Data for the table `anggota` */
 
+/*Table structure for table `kunjungan` */
+
+DROP TABLE IF EXISTS `kunjungan`;
+
+CREATE TABLE `kunjungan` (
+  `indeks_kunjungan` int(11) NOT NULL AUTO_INCREMENT,
+  `keperluan_kunjungan` varchar(50) NOT NULL,
+  `kategori_kunjungan` varchar(50) NOT NULL,
+  `jumlah_kunjungan` varchar(10) NOT NULL,
+  `fokus_kunjungan` varchar(50) NOT NULL,
+  `media_kunjungan` varchar(50) NOT NULL,
+  `proyeksi_kunjungan` varchar(20) NOT NULL,
+  PRIMARY KEY (`indeks_kunjungan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `kunjungan` */
+
 /*Table structure for table `pertanyaan` */
 
 DROP TABLE IF EXISTS `pertanyaan`;
