@@ -23,13 +23,21 @@ DROP TABLE IF EXISTS `anggota`;
 CREATE TABLE `anggota` (
   `indeks_anggota` int(11) NOT NULL AUTO_INCREMENT,
   `nama_anggota` varchar(50) NOT NULL,
+  `tanggal_lahir` char(6) NOT NULL,
+  `umur_anggota` varchar(8) NOT NULL,
   `jk_anggota` char(1) NOT NULL,
-  `tanggal_lahir` date NOT NULL,
-  `instansi_anggota` varchar(100) NOT NULL,
-  `no_telepon` varchar(13) NOT NULL,
-  `pekerjaan_anggota` varchar(20) NOT NULL,
-  `alamat_anggota` varchar(100) NOT NULL,
+  `telepon_pengguna` varchar(13) NOT NULL,
+  `kewarganegaraan_anggota` char(3) NOT NULL,
+  `asal_pengguna` varchar(15) NOT NULL,
+  `identitas_pengguna` varchar(30) NOT NULL,
+  `pendidikan_pengguna` varchar(20) NOT NULL,
+  `profesi_pengguna` varchar(50) NOT NULL,
+  `tempat_studi` varchar(40) NOT NULL,
   `keperluan` varchar(50) NOT NULL,
+  `fokus_penelitian` varchar(20) NOT NULL,
+  `jenis_arsip` varchar(10) NOT NULL,
+  `total_kunjungan` varchar(10) NOT NULL,
+  `waktu_penelitian` varchar(10) NOT NULL,
   PRIMARY KEY (`indeks_anggota`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
