@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v8.6 Beta2
-MySQL - 5.5.5-10.1.13-MariaDB : Database - buku_kuesioner
+MySQL - 5.5.5-10.1.22-MariaDB : Database - buku_kuesioner
 *********************************************************************
 */
 
@@ -14,38 +14,40 @@ MySQL - 5.5.5-10.1.13-MariaDB : Database - buku_kuesioner
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`buku_kuesioner` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `buku_kuesioner`;
-
 /*Table structure for table `anggota` */
-
-DROP TABLE IF EXISTS `anggota`;
 
 CREATE TABLE `anggota` (
   `indeks_anggota` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_anggota` varchar(50) NOT NULL,
-  `tanggal_lahir` char(6) NOT NULL,
-  `umur_anggota` varchar(8) NOT NULL,
-  `jk_anggota` char(1) NOT NULL,
-  `telepon_pengguna` varchar(13) NOT NULL,
-  `kewarganegaraan_anggota` char(3) NOT NULL,
-  `asal_pengguna` varchar(15) NOT NULL,
-  `identitas_pengguna` varchar(30) NOT NULL,
-  `pendidikan_pengguna` varchar(20) NOT NULL,
-  `profesi_pengguna` varchar(50) NOT NULL,
-  `tempat_studi` varchar(40) NOT NULL,
-  `keperluan` varchar(50) NOT NULL,
-  `fokus_penelitian` varchar(20) NOT NULL,
-  `jenis_arsip` varchar(10) NOT NULL,
-  `total_kunjungan` varchar(10) NOT NULL,
-  `waktu_penelitian` varchar(10) NOT NULL,
+  `nama_anggota` varchar(50) DEFAULT NULL,
+  `tanggal_lahir` char(6) DEFAULT NULL,
+  `umur_anggota` varchar(8) DEFAULT NULL,
+  `jk_anggota` char(1) DEFAULT NULL,
+  `telepon_pengguna` varchar(13) DEFAULT NULL,
+  `kewarganegaraan_anggota` char(3) DEFAULT NULL,
+  `asal_pengguna` varchar(15) DEFAULT NULL,
+  `identitas_pengguna` varchar(30) DEFAULT NULL,
+  `pendidikan_pengguna` varchar(20) DEFAULT NULL,
+  `profesi_pengguna` varchar(50) DEFAULT NULL,
+  `tempat_studi` varchar(40) DEFAULT NULL,
+  `program_studi` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`indeks_anggota`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `anggota` */
 
-/*Table structure for table `kunjungan` */
+insert  into `anggota`(`indeks_anggota`,`nama_anggota`,`tanggal_lahir`,`umur_anggota`,`jk_anggota`,`telepon_pengguna`,`kewarganegaraan_anggota`,`asal_pengguna`,`identitas_pengguna`,`pendidikan_pengguna`,`profesi_pengguna`,`tempat_studi`,`program_studi`) values (1,'faiq','sby, 1','21 - 25','L','085728294838','WNI','Jojoran gang 1 ','5114100165','SMA','Dosen',NULL,'Teknik Informatika');
 
-DROP TABLE IF EXISTS `kunjungan`;
+/*Table structure for table `dummy` */
+
+CREATE TABLE `dummy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `identitas` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `dummy` */
+
+/*Table structure for table `kunjungan` */
 
 CREATE TABLE `kunjungan` (
   `indeks_kunjungan` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,8 +64,6 @@ CREATE TABLE `kunjungan` (
 
 /*Table structure for table `pertanyaan` */
 
-DROP TABLE IF EXISTS `pertanyaan`;
-
 CREATE TABLE `pertanyaan` (
   `indeks_pertanyaan` int(11) NOT NULL AUTO_INCREMENT,
   `kategori_pertanyaan` varchar(50) DEFAULT NULL,
@@ -75,13 +75,11 @@ CREATE TABLE `pertanyaan` (
 
 /*Table structure for table `rekap_survey` */
 
-DROP TABLE IF EXISTS `rekap_survey`;
-
 CREATE TABLE `rekap_survey` (
   `indeks_rekap` int(11) NOT NULL AUTO_INCREMENT,
-  `indeks_anggota` int(11) NOT NULL,
-  `indeks_pertanyaan` int(11) NOT NULL,
-  `jawaban_survey` varchar(3) NOT NULL,
+  `indeks_anggota` int(11) DEFAULT NULL,
+  `indeks_pertanyaan` int(11) DEFAULT NULL,
+  `jawaban_survey` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`indeks_rekap`),
   KEY `indeks_anggota` (`indeks_anggota`),
   KEY `indeks_pertanyaan` (`indeks_pertanyaan`),
